@@ -1,5 +1,5 @@
 package EasyLevel;
-
+/*
 class TreeNode {
     int val;
     TreeNode left;
@@ -15,7 +15,7 @@ class TreeNode {
         this.right = right;
 
       }
-}
+}*/
 
 public class SameTree {
 

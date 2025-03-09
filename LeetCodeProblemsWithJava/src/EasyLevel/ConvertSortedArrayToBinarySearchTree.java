@@ -15,24 +15,22 @@ class TreeNode {
     }
 }
 public class ConvertSortedArrayToBinarySearchTree {
+
+    public static TreeNode recursiveSortedArrayBST(int [] nums,int start,int end){
+        if(start>end){
+            return null;
+        }
+        int middle = start + (end - start)/2;
+        TreeNode root = new TreeNode(nums[middle]);
+        root.left = recursiveSortedArrayBST(nums,start,middle-1);
+        root.right = recursiveSortedArrayBST(nums,middle+1,end);
+        return root;
+    }
+
+
+
     public static TreeNode sortedArrayToBST(int[] nums) {
-        //[9,5,6,7,0]
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums.length; j++) {
-                if(nums[i]<nums[j]){
-                    int temp = 0;
-                    temp = nums[j];
-                    nums[j] = nums[i];
-                    nums[i] = temp;
-                }
-            }
-        }
-
-        while (nums.length != 0){
-            
-        }
-
-        return new TreeNode(3,null,null);
+        return recursiveSortedArrayBST(nums,0,nums.length-1);
     }
 
     public static void main(String[] args) {

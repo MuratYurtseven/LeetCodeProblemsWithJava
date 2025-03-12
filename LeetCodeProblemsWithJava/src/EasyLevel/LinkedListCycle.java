@@ -3,9 +3,11 @@ package EasyLevel;
 public class LinkedListCycle {
 
     public static boolean hasCycle(ListNode head) {
+        if(head == null)return false;
+        if(head.next == null)return false;
         ListNode twoStep = head;
         ListNode oneStep = head;
-        while (twoStep.next.next != null && oneStep.next != null){
+        while (twoStep != null && twoStep.next != null){
             twoStep = twoStep.next.next;
             oneStep = oneStep.next;
             if(twoStep == oneStep){
